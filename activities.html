@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Activities - Souškovo panství</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Cottage-style title font -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #faf7f2;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    nav a:hover {
+      background: rgba(255, 179, 71, 0.9);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    nav a.active {
+      background: rgba(255, 179, 71, 0.85);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(135deg, #2f4f4f 0%, #1a2e2e 100%);
+      color: #fff;
+      padding: 100px 20px 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    .page-title {
+      font-family: "Amatic SC", cursive;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* FADE-IN SECTIONS */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding-top: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      color: #2f4f4f;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      margin-top: 24px;
+      color: #555;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.9rem;
+      color: #555;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* SOCIAL MEDIA BUTTONS */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+      margin-bottom: 16px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      transition: transform 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .social-link.facebook:hover {
+      background: #1877f2;
+    }
+
+    .social-link.instagram:hover {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .social-link svg {
+      width: 24px;
+      height: 24px;
+      fill: #555;
+    }
+
+    .social-link:hover svg {
+      fill: #fff;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        top: 20px;
+      }
+
+      nav ul {
+        gap: 8px;
+      }
+
+      nav a {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <!-- NAVIGATION -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html" class="active">Activities</a></li>
+        <li><a href="history.html">History</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="page-title">Activities & Things to Do</h1>
+    <p>Discover the many ways to enjoy your stay at Souškovo panství</p>
+  </header>
+
+  <main>
+    <section id="outdoor" class="fade-section">
+      <h2>Outdoor Activities</h2>
+      
+      <h3>Hiking & Walking</h3>
+      <p>
+        The Ore Mountains (Krušné hory) offer countless hiking trails for all fitness levels. 
+        Explore the surrounding forests, meadows, and mountain paths right from the cottage doorstep.
+      </p>
+      <ul>
+        <li>Scenic forest walks</li>
+        <li>Mountain peak hikes</li>
+        <li>Nature photography</li>
+        <li>Bird watching</li>
+      </ul>
+
+      <h3>Cycling</h3>
+      <p>
+        Bring your bikes or rent them locally. The area features both challenging mountain bike trails 
+        and gentle countryside routes perfect for families.
+      </p>
+
+      <h3>Winter Sports</h3>
+      <p>
+        During winter months, enjoy cross-country skiing and downhill skiing at nearby resorts. 
+        The cottage is perfectly located for winter sports enthusiasts.
+      </p>
+      <ul>
+        <li>Cross-country skiing trails nearby</li>
+        <li>Downhill skiing resorts within short drive</li>
+        <li>Snowshoeing adventures</li>
+        <li>Sledding and winter fun</li>
+      </ul>
+    </section>
+
+    <section id="at-cottage" class="fade-section">
+      <h2>At the Cottage</h2>
+      
+      <h3>Relaxation</h3>
+      <ul>
+        <li>Enjoy the peaceful garden and outdoor seating</li>
+        <li>Cozy evenings by the fire pit (winter)</li>
+        <li>Movie nights with the projector</li>
+        <li>Reading and board games</li>
+      </ul>
+
+      <h3>Cooking & Dining</h3>
+      <p>
+        The fully equipped kitchen allows you to prepare your own meals. Enjoy local ingredients 
+        from nearby markets or try traditional Czech recipes.
+      </p>
+    </section>
+
+    <section id="nearby" class="fade-section">
+      <h2>Nearby Attractions</h2>
+      
+      <h3>Local Villages & Towns</h3>
+      <p>
+        Explore charming Czech and German border towns, each with their own unique character, 
+        local restaurants, and cultural sites.
+      </p>
+
+      <h3>Scenic Viewpoints</h3>
+      <p>
+        Drive or hike to various viewpoints offering stunning panoramas of the Ore Mountains 
+        and surrounding countryside.
+      </p>
+
+      <h3>Cultural Sites</h3>
+      <p>
+        Visit historical sites, museums, and local churches that tell the story of this 
+        border region's rich history.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer" class="social-link instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+    </div>
+    <p>© Souškovo panství – Nová Ves v Horách, Czechia</p>
+  </footer>
+
+  <script>
+    // Fade sections in when they enter the viewport
+    const fadeSections = document.querySelectorAll('.fade-section');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+    fadeSections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
