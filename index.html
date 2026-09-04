@@ -208,6 +208,56 @@
       fill: #fff;
     }
 
+
+    /* LANGUAGE SWITCHER */
+    .language-switcher {
+      position: absolute;
+      top: 30px;
+      right: 24px;
+      z-index: 20;
+    }
+
+    .language-switcher a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 42px;
+      padding: 0 14px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .language-switcher a:hover {
+      background: rgba(255, 179, 71, 0.9);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .language-switcher {
+        top: 20px;
+        right: 16px;
+      }
+
+      .language-switcher a {
+        min-width: 44px;
+        height: 38px;
+        padding: 0 12px;
+        font-size: 0.85rem;
+      }
+    }
+
     /* NAVIGATION */
     nav {
       position: absolute;
@@ -464,6 +514,10 @@
   </div>
 
   <header class="hero">
+    <div class="language-switcher">
+      <a href="index-cz.html" aria-label="Přepnout na češtinu">CZ</a>
+    </div>
+
     <!-- NAVIGATION -->
     <nav>
       <ul>
@@ -536,8 +590,8 @@
     <section id="contact" class="fade-section">
       <h2>Contact & booking</h2>
       <p>For availability and prices, please contact:</p>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>Phone: <a href="tel:+420123456789">+420 123 456 789</a></p>
+      <p>Email: <a href="mailto:leovahana21@gmail.com">leovahana21@gmail.com</a></p>
+      <p>Phone: <a href="tel:+420606086123">+420 606 086 123</a></p>
       
       <div class="social-links">
         <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" class="social-link facebook" aria-label="Facebook">
