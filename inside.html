@@ -1,12 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Inside a Cottage – Souškovo panství</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inside a Cottage – Souškovo panství</title>
 
-  <!-- Cottage-style title font -->
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,8 +14,7 @@
       padding: 0;
     }
 
-    html,
-    body {
+    html, body {
       min-height: 100%;
     }
 
@@ -28,10 +25,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    /* =========================
-       SNOW
-    ========================= */
 
     .snow {
       position: fixed;
@@ -47,67 +40,44 @@
       color: #fff;
       opacity: 0.9;
       font-size: 18px;
-      animation-name: fall;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
+      animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% {
-        transform: translate3d(0, -10px, 0);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 0.9;
-      }
-
-      100% {
-        transform: translate3d(0, 110vh, 0);
-        opacity: 0;
-      }
+      0% { transform: translate3d(0, -10px, 0); opacity: 0; }
+      10% { opacity: 0.9; }
+      100% { transform: translate3d(0, 110vh, 0); opacity: 0; }
     }
 
-    .snowflake:nth-child(1)  { left: 5%;  animation-duration: 10s; animation-delay: 0s;  font-size: 18px; }
-    .snowflake:nth-child(2)  { left: 15%; animation-duration: 14s; animation-delay: 2s;  font-size: 22px; }
-    .snowflake:nth-child(3)  { left: 25%; animation-duration: 12s; animation-delay: 4s;  font-size: 19px; }
-    .snowflake:nth-child(4)  { left: 35%; animation-duration: 16s; animation-delay: 1s;  font-size: 23px; }
-    .snowflake:nth-child(5)  { left: 45%; animation-duration: 11s; animation-delay: 3s;  font-size: 20px; }
-    .snowflake:nth-child(6)  { left: 55%; animation-duration: 13s; animation-delay: 5s;  font-size: 19px; }
-    .snowflake:nth-child(7)  { left: 65%; animation-duration: 15s; animation-delay: 0.5s; font-size: 24px; }
-    .snowflake:nth-child(8)  { left: 75%; animation-duration: 9s;  animation-delay: 2.5s; font-size: 18px; }
-    .snowflake:nth-child(9)  { left: 85%; animation-duration: 17s; animation-delay: 1.5s; font-size: 22px; }
-    .snowflake:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 3.5s; font-size: 20px; }
-
-
-    /* =========================
-       HEADER
-    ========================= */
+    .snowflake:nth-child(1)  { left: 5%;  animation-duration: 10s; animation-delay: 0s; }
+    .snowflake:nth-child(2)  { left: 15%; animation-duration: 14s; animation-delay: 2s; }
+    .snowflake:nth-child(3)  { left: 25%; animation-duration: 12s; animation-delay: 4s; }
+    .snowflake:nth-child(4)  { left: 35%; animation-duration: 16s; animation-delay: 1s; }
+    .snowflake:nth-child(5)  { left: 45%; animation-duration: 11s; animation-delay: 3s; }
+    .snowflake:nth-child(6)  { left: 55%; animation-duration: 13s; animation-delay: 5s; }
+    .snowflake:nth-child(7)  { left: 65%; animation-duration: 15s; animation-delay: .5s; }
+    .snowflake:nth-child(8)  { left: 75%; animation-duration: 9s; animation-delay: 2.5s; }
+    .snowflake:nth-child(9)  { left: 85%; animation-duration: 17s; animation-delay: 1.5s; }
+    .snowflake:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 3.5s; }
 
     .hero {
       min-height: 430px;
       width: 100%;
       padding: 100px 20px 60px;
-
       text-align: center;
       color: #fff;
-
       background-image: url("background.jpeg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-
+      text-shadow: 0 2px 6px rgba(0,0,0,.5);
       position: relative;
       z-index: 1;
       overflow: hidden;
-
       animation: heroZoom 25s ease-out forwards;
     }
 
@@ -124,11 +94,6 @@
       margin-bottom: 20px;
     }
 
-
-    /* =========================
-       LANGUAGE SWITCHER
-    ========================= */
-
     .language-switcher {
       position: absolute;
       top: 30px;
@@ -136,42 +101,36 @@
       z-index: 20;
     }
 
+    .language-switcher a,
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      background: rgba(0,0,0,.4);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,.3);
+      transition: all .3s ease;
+      text-shadow: 0 1px 3px rgba(0,0,0,.3);
+    }
+
     .language-switcher a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       min-width: 48px;
       height: 42px;
       padding: 0 14px;
-
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-
-      border-radius: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-
-      transition: all 0.3s ease;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      font-size: .9rem;
     }
 
-    .language-switcher a:hover {
-      background: rgba(255, 179, 71, 0.9);
-      border-color: rgba(255, 255, 255, 0.5);
+    .language-switcher a:hover,
+    nav a:hover {
+      background: rgba(255,179,71,.9);
+      border-color: rgba(255,255,255,.5);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
     }
-
-
-    /* =========================
-       NAVIGATION
-    ========================= */
 
     nav {
       position: absolute;
@@ -186,59 +145,26 @@
       display: flex;
       justify-content: center;
       gap: 16px;
-      padding: 0;
-      margin: 0;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-
-      padding: 12px 24px;
-
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-
-      border-radius: 30px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-
-      transition: all 0.3s ease;
-
       display: inline-block;
-
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    }
-
-    nav a:hover {
-      background: rgba(255, 179, 71, 0.9);
-      border-color: rgba(255, 255, 255, 0.5);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 12px 24px;
     }
 
     nav a.active {
-      background: rgba(255, 179, 71, 0.85);
-      border-color: rgba(255, 255, 255, 0.6);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      background: rgba(255,179,71,.85);
+      border-color: rgba(255,255,255,.6);
     }
-
-
-    /* =========================
-       MAIN
-    ========================= */
 
     main {
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 30px 50px;
-
       background: #fff;
       border-radius: 12px 12px 0 0;
-
-      box-shadow: 0 -8px 20px rgba(0,0,0,0.08);
-
+      box-shadow: 0 -8px 20px rgba(0,0,0,.08);
       position: relative;
       z-index: 2;
     }
@@ -260,11 +186,6 @@
       color: #555;
     }
 
-
-    /* =========================
-       GALLERY
-    ========================= */
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -275,17 +196,13 @@
       background: #faf7f2;
       border-radius: 12px;
       overflow: hidden;
-
-      box-shadow: 0 5px 16px rgba(0,0,0,0.08);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+      box-shadow: 0 5px 16px rgba(0,0,0,.08);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
 
     .gallery-item:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+      box-shadow: 0 10px 25px rgba(0,0,0,.14);
     }
 
     .gallery-image {
@@ -293,8 +210,7 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-
-      transition: transform 0.35s ease;
+      transition: transform .35s ease;
       cursor: zoom-in;
     }
 
@@ -313,73 +229,39 @@
 
     .gallery-text p {
       color: #666;
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     footer {
       text-align: center;
       padding: 16px;
-
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: #555;
-
       position: relative;
       z-index: 1;
     }
-
-
-    /* =========================
-       SOCIAL MEDIA
-    ========================= */
 
     .social-links {
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-top: 20px;
-      margin-bottom: 16px;
+      margin: 20px 0 16px;
     }
 
     .social-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       width: 44px;
       height: 44px;
-
       border-radius: 50%;
       background: #f0f0f0;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-
+      transition: transform .2s ease, background .2s ease;
       text-decoration: none;
     }
 
     .social-link:hover {
       transform: translateY(-2px);
-    }
-
-    .social-link.facebook:hover {
-      background: #1877f2;
-    }
-
-    .social-link.instagram:hover {
-      background: linear-gradient(
-        45deg,
-        #f09433 0%,
-        #e6683c 25%,
-        #dc2743 50%,
-        #cc2366 75%,
-        #bc1888 100%
-      );
     }
 
     .social-link svg {
@@ -392,28 +274,12 @@
       fill: #fff;
     }
 
-
-    /* =========================
-       HERO ANIMATION
-    ========================= */
-
     @keyframes heroZoom {
-      0% {
-        transform: scale(1);
-      }
-
-      100% {
-        transform: scale(1.08);
-      }
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
     }
 
-
-    /* =========================
-       MOBILE
-    ========================= */
-
     @media (max-width: 700px) {
-
       .hero {
         min-height: 500px;
         padding: 120px 16px 50px;
@@ -434,7 +300,7 @@
 
       nav a {
         padding: 10px 14px;
-        font-size: 0.85rem;
+        font-size: .85rem;
       }
 
       .language-switcher {
@@ -463,12 +329,7 @@
   </style>
 </head>
 
-
 <body>
-
-  <!-- =========================
-       SNOW
-  ========================= -->
 
   <div class="snow">
     <div class="snowflake">❄</div>
@@ -483,40 +344,20 @@
     <div class="snowflake">❄</div>
   </div>
 
-
-  <!-- =========================
-       HEADER
-  ========================= -->
-
   <header class="hero">
 
     <div class="language-switcher">
-      <a href="inside-cz.html" aria-label="Přepnout na češtinu">CZ</a>
+      <a href="inside-cz.html" aria-label="Switch to Czech">CZ</a>
     </div>
-
-
-    <!-- NAVIGATION -->
 
     <nav>
       <ul>
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-
-        <li>
-          <a href="activities.html">Activities</a>
-        </li>
-
-        <li>
-          <a href="inside.html" class="active">Inside a cottage</a>
-        </li>
-
-        <li>
-          <a href="history.html">History</a>
-        </li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="inside.html" class="active">Inside a cottage</a></li>
+        <li><a href="history.html">History</a></li>
       </ul>
     </nav>
-
 
     <h1 class="hero-title">Inside a Cottage</h1>
 
@@ -527,200 +368,128 @@
 
   </header>
 
-
-  <!-- =========================
-       MAIN CONTENT
-  ========================= -->
-
   <main>
 
     <section class="intro">
-
       <h2>Inside a cottage</h2>
-
       <p>
         Explore the interior of Souškovo panství.
         Here you can find photos and information about
         the equipment and rooms available to our guests.
       </p>
-
     </section>
-
-
-    <!-- =========================
-         PHOTO GALLERY
-    ========================= -->
 
     <section class="gallery">
 
-
-      <!-- PHOTO 1 -->
-
+      <!-- EXISTING PHOTO 1 -->
       <article class="gallery-item">
-
         <a href="images/cottage1.jpeg" target="_blank">
-          <img
-            class="gallery-image"
-            src="images/cottage1.jpeg"
-            alt="Living room"
-          >
+          <img class="gallery-image" src="images/cottage1.jpeg" alt="Living room">
         </a>
-
         <div class="gallery-text">
-
           <h3>Living room</h3>
-
-          <p>
-            A cozy living room where you can relax,
-            spend time together and enjoy the atmosphere
-            of the cottage.
-          </p>
-
+          <p>A cozy living room where you can relax, spend time together and enjoy the atmosphere of the cottage.</p>
         </div>
-
       </article>
 
-
-      <!-- PHOTO 2 -->
-
+      <!-- NEW PHOTO: LIVING ROOM -->
       <article class="gallery-item">
+        <a href="images/IMG_5699.JPG" target="_blank">
+          <img class="gallery-image" src="images/IMG_5699.JPG" alt="Living room with projector">
+        </a>
+        <div class="gallery-text">
+          <h3>Living room</h3>
+          <p>A spacious room with a projector, perfect for relaxing and enjoying a movie together.</p>
+        </div>
+      </article>
 
+      <!-- EXISTING PHOTO 2 -->
+      <article class="gallery-item">
         <a href="images/cottage2.jpeg" target="_blank">
-          <img
-            class="gallery-image"
-            src="images/cottage2.jpeg"
-            alt="Garden"
-          >
+          <img class="gallery-image" src="images/cottage2.jpeg" alt="Garden">
         </a>
-
         <div class="gallery-text">
-
           <h3>Garden</h3>
-
-          <p>
-            Cottage garden with a hammock and colorful flowers.
-          </p>
-
+          <p>Cottage garden with a hammock and colorful flowers.</p>
         </div>
-
       </article>
 
-
-      <!-- PHOTO 3 -->
-
+      <!-- EXISTING PHOTO 3 -->
       <article class="gallery-item">
-
         <a href="images/cottage3.jpeg" target="_blank">
-          <img
-            class="gallery-image"
-            src="images/cottage3.jpeg"
-            alt="Working desk"
-          >
+          <img class="gallery-image" src="images/cottage3.jpeg" alt="Working desk">
         </a>
-
         <div class="gallery-text">
-
           <h3>Place for work</h3>
-
-          <p>
-            A comfortable place for working with a monitor and garden view.
-          </p>
-
+          <p>A comfortable place for working with a monitor and garden view.</p>
         </div>
-
       </article>
 
-
-      <!-- PHOTO 4 -->
-
+      <!-- EXISTING PHOTO 4 -->
       <article class="gallery-item">
-
         <a href="images/cottage4.jpeg" target="_blank">
-          <img
-            class="gallery-image"
-            src="images/cottage4.jpeg"
-            alt="Cottage interior"
-          >
+          <img class="gallery-image" src="images/cottage4.jpeg" alt="Cottage interior">
         </a>
-
         <div class="gallery-text">
-
           <h3>More inside</h3>
-
-          <p>
-            Plenty of board games for fun evening with your friends and family.
-          </p>
-
+          <p>Plenty of board games for fun evening with your friends and family.</p>
         </div>
-
       </article>
 
+      <!-- NEW PHOTO: BEDROOM -->
+      <article class="gallery-item">
+        <a href="images/IMG_5705.JPG" target="_blank">
+          <img class="gallery-image" src="images/IMG_5705.JPG" alt="Bedroom">
+        </a>
+        <div class="gallery-text">
+          <h3>Bedroom</h3>
+          <p>A comfortable bedroom with a large wooden bed and a cozy atmosphere.</p>
+        </div>
+      </article>
 
-      <!--
-        ==========================================
-        ADD MORE PHOTOS BELOW
-        ==========================================
+      <!-- KITCHEN PHOTO 1 - ADD IMAGE LATER -->
+      <article class="gallery-item">
+        <a href="images/kitchen1.jpeg" target="_blank">
+          <img class="gallery-image" src="images/kitchen1.jpeg" alt="Kitchen">
+        </a>
+        <div class="gallery-text">
+          <h3>Kitchen</h3>
+          <p>Kitchen area equipped for comfortable cooking and preparing meals.</p>
+        </div>
+      </article>
 
-        Copy this whole block for every new photo:
-
-        <article class="gallery-item">
-
-          <a href="images/YOUR-PHOTO.jpg" target="_blank">
-            <img
-              class="gallery-image"
-              src="images/YOUR-PHOTO.jpg"
-              alt="Description of the photo"
-            >
-          </a>
-
-          <div class="gallery-text">
-
-            <h3>Title</h3>
-
-            <p>
-              Description.
-            </p>
-
-          </div>
-
-        </article>
-
-      -->
-
+      <!-- KITCHEN PHOTO 2 - ADD IMAGE LATER -->
+      <article class="gallery-item">
+        <a href="images/kitchen2.jpeg" target="_blank">
+          <img class="gallery-image" src="images/kitchen2.jpeg" alt="Kitchen">
+        </a>
+        <div class="gallery-text">
+          <h3>Kitchen</h3>
+          <p>Another view of the kitchen and its equipment.</p>
+        </div>
+      </article>
 
     </section>
-
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
   <footer>
-
     <div class="social-links">
 
-      <a
-        href="https://www.facebook.com/yourpage"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-link facebook"
-        aria-label="Facebook"
-      >
+      <a href="https://www.facebook.com/yourpage"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link facebook"
+         aria-label="Facebook">
         <svg viewBox="0 0 24 24">
           <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
         </svg>
       </a>
 
-
-      <a
-        href="https://www.instagram.com/souskovo_panstvi/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="social-link instagram"
-        aria-label="Instagram"
-      >
+      <a href="https://www.instagram.com/souskovo_panstvi/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="social-link instagram"
+         aria-label="Instagram">
         <svg viewBox="0 0 24 24">
           <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 3.675c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
         </svg>
@@ -728,13 +497,8 @@
 
     </div>
 
-
-    <p>
-      © Souškovo panství – Nová Ves v Horách, Czechia
-    </p>
-
+    <p>© Souškovo panství – Nová Ves v Horách, Czechia</p>
   </footer>
 
 </body>
 </html>
-```
